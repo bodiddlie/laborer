@@ -156,8 +156,8 @@ public class Laborer extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        retVal.add(DefaultCommonAttack.ID);
-        retVal.add(DefaultUncommonAttack.ID);
+        retVal.add(LaborerStrike.ID);
+        retVal.add(LaborerStrike.ID);
         retVal.add(DefaultRareAttack.ID);
 
         retVal.add(DefaultCommonSkill.ID);
@@ -238,7 +238,7 @@ public class Laborer extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new DefaultCommonAttack();
+        return new LaborerStrike();
     }
 
     // The class name as it appears next to your player name in-game
