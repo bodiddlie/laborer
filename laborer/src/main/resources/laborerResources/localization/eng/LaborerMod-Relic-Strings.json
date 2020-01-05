@@ -1,4 +1,11 @@
 {
+  "laborer:UnionCard": {
+    "NAME": "Union Card",
+    "FLAVOR": "Solidarity is Strength",
+    "DESCRIPTIONS": [
+      "Start battle with #b1 Solidarity."
+    ]
+  },
   "laborer:PlaceholderRelic": {
     "NAME": "Placeholder Energy Relic",
     "FLAVOR": "The snake is a friend.",
