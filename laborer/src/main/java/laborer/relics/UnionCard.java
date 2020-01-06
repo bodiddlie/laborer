@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import laborer.LaborerMod;
+import laborer.powers.Solidarity;
 import laborer.util.TextureLoader;
 
 import static laborer.LaborerMod.makeRelicOutlinePath;
@@ -28,7 +29,7 @@ public class UnionCard extends CustomRelic {
   public void atBattleStart() {
     this.flash();
     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(
-        AbstractDungeon.player, AbstractDungeon.player, new ThornsPower(AbstractDungeon.player, 3),
+        AbstractDungeon.player, AbstractDungeon.player, new Solidarity(AbstractDungeon.player, 3),
         3
     ));
   }
