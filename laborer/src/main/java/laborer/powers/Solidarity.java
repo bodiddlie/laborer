@@ -67,4 +67,13 @@ public class Solidarity extends AbstractPower implements CloneablePowerInterface
   public AbstractPower makeCopy() {
     return new Solidarity(owner, amount);
   }
+
+  @Override
+  public void updateDescription() {
+    if (amount == 1) {
+      this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+    } else if (amount > 1) {
+      this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+    }
+  }
 }

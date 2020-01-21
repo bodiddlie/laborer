@@ -96,15 +96,15 @@ public class LaborerMod implements
 
   // Colors (RGB)
   // Character Color
-  public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
+  public static final Color DEFAULT_GRAY = CardHelper.getColor(64, 70, 70);
 
   // Potion Colors in RGB
   public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper
-      .getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
+      .getColor(209, 53, 18); // Orange-ish Red
   public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper
-      .getColor(255.0f, 230.0f, 230.0f); // Near White
+      .getColor(255, 230, 230); // Near White
   public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper
-      .getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
+      .getColor(100, 25, 10); // Super Dark Red/Brown
 
   // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
   // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
@@ -425,6 +425,7 @@ public class LaborerMod implements
     BaseMod.addCard(new DefaultSecondMagicNumberSkill());
     BaseMod.addCard(new LaborerStrike());
     BaseMod.addCard(new LaborerDefend());
+    BaseMod.addCard(new Unionize());
     BaseMod.addCard(new DefaultAttackWithVariable());
     BaseMod.addCard(new DefaultCommonPower());
     BaseMod.addCard(new DefaultUncommonSkill());
@@ -450,6 +451,9 @@ public class LaborerMod implements
     UnlockTracker.unlockCard(DefaultRareAttack.ID);
     UnlockTracker.unlockCard(DefaultRareSkill.ID);
     UnlockTracker.unlockCard(DefaultRarePower.ID);
+    UnlockTracker.unlockCard(LaborerStrike.ID);
+    UnlockTracker.unlockCard(LaborerDefend.ID);
+    UnlockTracker.unlockCard(Unionize.ID);
 
     logger.info("Done adding cards!");
   }
@@ -494,6 +498,9 @@ public class LaborerMod implements
     // OrbStrings
     BaseMod.loadCustomStringsFile(OrbStrings.class,
         getModID() + "Resources/localization/eng/LaborerMod-Orb-Strings.json");
+
+    BaseMod.loadCustomStringsFile(StanceStrings.class,
+        getModID() + "Resources/localization/eng/LaborerMod-Stance-Strings.json");
 
     logger.info("Done edittting strings");
   }

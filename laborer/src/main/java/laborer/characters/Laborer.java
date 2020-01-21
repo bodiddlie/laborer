@@ -163,6 +163,7 @@ public class Laborer extends CustomPlayer {
         retVal.add(DefaultRareAttack.ID);
 
         retVal.add(LaborerDefend.ID);
+        retVal.add(Unionize.ID);
         retVal.add(DefaultUncommonSkill.ID);
         retVal.add(DefaultRareSkill.ID);
 
