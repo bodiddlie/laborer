@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,10 +18,14 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import laborer.LaborerMod;
+import laborer.stances.WorkStoppageStance;
 import laborer.util.TextureLoader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Solidarity extends AbstractPower implements CloneablePowerInterface {
 
+  public static final Logger logger = LogManager.getLogger(Solidarity.class.getName());
   public boolean isProducing = true;
   public static final String POWER_ID = LaborerMod.makeID("Solidarity");
   private static final PowerStrings powerStrings = CardCrawlGame.languagePack
@@ -53,13 +58,16 @@ public class Solidarity extends AbstractPower implements CloneablePowerInterface
 
   @Override
   public void atEndOfTurn(final boolean isPlayer) {
-    if (isProducing) {
-      this.flash();
-      AbstractDungeon.actionManager.addToBottom(new SwordBoomerangAction(
-          AbstractDungeon.getMonsters()
-              .getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng),
-          new DamageInfo(this.owner, this.amount,
-              DamageType.THORNS), 1));
+    if (isPlayer) {
+      AbstractPlayer p = (AbstractPlayer) this.owner;
+      if (p.stance.ID.equals(WorkStoppageStance.STANCE_ID)) {
+        this.flash();
+        this.addToBot(new SwordBoomerangAction(
+            AbstractDungeon.getMonsters().
+                getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng),
+            new DamageInfo(this.owner, this.amount, DamageType.THORNS), 1
+        ));
+      }
     }
   }
 
