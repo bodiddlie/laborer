@@ -1,4 +1,4 @@
-package basicmod.util;
+package laborer.util;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 

@@ -1,7 +1,7 @@
-package basicmod.powers;
+package laborer.powers;
 
-import basicmod.util.GeneralUtils;
-import basicmod.util.TextureLoader;
+import laborer.util.GeneralUtils;
+import laborer.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
